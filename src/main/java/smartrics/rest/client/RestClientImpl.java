@@ -133,7 +133,7 @@ public class RestClientImpl implements RestClient {
             throw new IllegalStateException(message, e);
         } finally {
             m.releaseConnection();
-            client.getHttpConnectionManager().closeIdleConnections(0);
+            client.getHttpConnectionManager().closeIdleConnections(0L);
         }
         LOG.debug(resp);
         return resp;
