@@ -65,6 +65,11 @@ public class RestClientImpl implements RestClient {
         if (client == null)
             throw new IllegalArgumentException("Null HttpClient instance");
         this.client = client;
+        
+        // TODO:Workaround, make it nice by using a configuration file.
+        HttpClientParams params = new HttpClientParams();
+        params.setParameter("http.protocol.content-charset", "UTF-8");
+    	this.client.setParams(params);
     }
 
     /**
